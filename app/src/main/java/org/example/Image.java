@@ -30,7 +30,13 @@ public class Image {
       FileWriter writer = new FileWriter(output_path);
 
       writer.write("P3\n");
-      // TODO: Write the pixel values here to the file
+      writer.write(pixels[0].length + " " + pixels.length + "\n");
+      writer.write("255\n");
+      for (int i = 0; i < pixels.length; i++) {
+        for (int j = 0; j < pixels[i].length; j++) {
+          writer.write(pixels[i][j][0] + " " + pixels[i][j][1] + " " + pixels[i][j][2] + "\n");
+        }
+      }
 
       writer.close();
     } catch (IOException e) {
